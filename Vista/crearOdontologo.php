@@ -46,6 +46,20 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
+
+            <?php if(@$_GET['respuesta']){?>
+                <?php if($_GET['respuesta'] == "correcto"){?>
+                    <div class="alert alert-success alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Odontologo Guardado Correctamente. <a href="#" class="alert-link">Odontologo Insertado</a>.
+                    </div>
+                <?php }else{ ?>
+                    <div class="alert alert-danger alert-dismissable">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        Error: No se inserto el odontologo. <a href="#" class="alert-link">Odontologo No Insertado</a>.
+                    </div>
+                <?php } ?>
+            <?php }?>
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
@@ -56,7 +70,7 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" method="post">
+                                    <form role="form" method="post" action="../Controlador/odontologos_controller.php?action=crear">
                                        <div class="form-group">
                                             <label>Nombres</label>
                                             <input name="nombres" id="nombres" maxlength="50" size="50" class="form-control" placeholder="Nombres Completos" required>
